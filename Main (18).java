@@ -125,6 +125,7 @@ class Main {
         while (true) {
             start2  = sc.next();
             start2 = start2.replace(",", ".");
+            if (start2.substring(0, 1) == ".") start2 = "0" + start2;
             if (start2.indexOf(".") == -1) {
                 long start = Long.parseLong(start2);
                 if (Math.abs(start) <= 127) {
@@ -148,9 +149,7 @@ class Main {
                 try {
                     float f = Float.parseFloat(start2);
                     double d = Double.parseDouble(start2);
-                    String t = FloatToBin(f);
-                    if (Math.abs(d - f) <= 0.000000000001) System.out.println("float:  " +  t);
-                    else System.out.println("Это число слишком большое для float!");
+                    System.out.println("float:  " + FloatToBin(f));
                     System.out.println("double:  " + DoubleToBin(d));
                     System.out.printf("Также советуем вам попробовать следующие числа: %f, %f, %f\n", Math.random() * Math.random() * 100, Math.random() * Math.random() * 100, Math.random() * Math.random() * 100);
                 } catch (Exception e) {
